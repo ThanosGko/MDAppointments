@@ -40,13 +40,4 @@
         <button onclick="window.location.href='signup.jsp'">Sign Up</button>
     </div>
 </body>
-<script>
-    const urlParams = new URLSearchParams(window.location.search);
-	  const error = urlParams.get('error');
-	  const message = urlParams.get('message');
-	  
-	  if (error === 'true') {
-	    alert(message);
-	  }
-	</script>
 </html>
