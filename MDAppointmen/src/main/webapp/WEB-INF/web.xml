@@ -39,4 +39,14 @@
     <servlet-name>LogOutServlet</servlet-name>
     <url-pattern>/logout</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CheckDocServlet</display-name>
+    <servlet-name>CheckDocServlet</servlet-name>
+    <servlet-class>CheckDocServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CheckDocServlet</servlet-name>
+    <url-pattern>/CheckDoc</url-pattern>
+  </servlet-mapping>
 </web-app>

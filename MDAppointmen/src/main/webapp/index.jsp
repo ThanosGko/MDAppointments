@@ -25,13 +25,8 @@
 </head>
 <body>
     <div class="top-right">
-        <div class="btn-group" role="group" aria-label="Basic example">
-		  <button type="button" class="btn btn-primary">Left</button>
-		  <button type="button" class="btn btn-primary">Middle</button>
-		  <button type="button" class="btn btn-primary">Right</button>
-		  
-		</div>
-        
+		  <button type="button" class="btn btn-primary btn-lg" onclick="window.location.href='signin.jsp'">Sign In</button>
+		   <button type="button" class="btn btn-secondary btn-lg" onclick="window.location.href='signup.jsp'">Sign Up</button> 
     </div>
 	<%@ include file="/Fragments/BodyEnd.jspf" %>
 </body>

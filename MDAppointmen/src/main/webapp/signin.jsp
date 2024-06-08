@@ -3,91 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <title>Medical Doctors Appointment - Sign In</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        .login-container {
-            background-color: #ffffff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 300px;
-        }
-        .login-container h2 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .login-container input[type="text"],
-        .login-container input[type="password"] {
-            width: 92%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        .login-container input[type="submit"] {
-            width: 100%;
-            padding: 10px;
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .login-container input[type="submit"]:hover {
-            background-color: #0056b3;
-        }
-        .signup-message {
-            text-align: center;
-            margin-top: 10px;
-        }
-        .signup-message a {
-            color: #007BFF;
-            text-decoration: none;
-        }
-        .signup-message a:hover {
-            text-decoration: underline;
-        }
-        .error-message {
-            color: red;
-            text-align: center;
-            margin-top: 10px;
-        }
-        .back-button {
-            position: absolute;
-            bottom: 10px;
-            right: 10px;
-            background-color: #B7B7B7;
-            color: black;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .back-button:hover {
-            background-color: #A5A5A5;
-        }
-    </style>
+    <%@ include file="/Fragments/HTMLHead.jspf" %>
 </head>
 <body>
-    <div class="login-container">
-        <h2>Sign In</h2>
-        <form action="signin" method="post">
-            <input type="text" name="username" placeholder="Username" required>
-            <input type="password" name="password" placeholder="Password" required>
-            <input type="submit" value="Sign In">
+  <div class="modal modal-sheet position-static d-block bg-body-secondary p-4 py-md-5" tabindex="-1" role="dialog" id="modalSignin" style="height: 100vh;">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content rounded-4 shadow">
+      <div class="modal-header p-5 pb-4 border-bottom-0">
+        <h1 class="fw-bold mb-0 fs-2" style="margin-left:150px">Sign In</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="window.location.href='index.jsp'"></button>
+      </div>
+
+      <div class="modal-body p-5 pt-0">
+        <form class="">
+          <div class="form-floating mb-3">
+            <input type="email" class="form-control rounded-3" id="floatingInput" placeholder="name@example.com">
+            <label for="floatingInput">AMKA</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="password" class="form-control rounded-3" id="floatingPassword" placeholder="Password">
+            <label for="floatingPassword">Password</label>
+          </div>
+          <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">Sign In</button>
+          <small class="text-body-secondary">By clicking Sign up, you agree to the terms of use.</small>
         </form>
-        <br>
-        <div class="signup-message">
-            <p>If you don't have an account, <a href="signup.jsp">Sign Up</a></p>
-        </div>
+      </div>
     </div>
-    <button onclick="location.href='index.jsp'" class="back-button">Back</button>
+  </div>
+</div>
+<%@ include file="/Fragments/BodyEnd.jspf" %>
 </body>
 </html>
