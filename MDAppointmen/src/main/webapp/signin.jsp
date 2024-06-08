@@ -15,17 +15,17 @@
       </div>
 
       <div class="modal-body p-5 pt-0">
-        <form class="">
+        <form action="signin" method="post">
           <div class="form-floating mb-3">
-            <input type="email" class="form-control rounded-3" id="floatingInput" placeholder="name@example.com">
+            <input type="text" class="form-control rounded-3" name="username" placeholder="name@example.com">
             <label for="floatingInput">AMKA</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="password" class="form-control rounded-3" id="floatingPassword" placeholder="Password">
+            <input type="password" class="form-control rounded-3" name="password" placeholder="Password">
             <label for="floatingPassword">Password</label>
           </div>
           <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">Sign In</button>
-          <small class="text-body-secondary">By clicking Sign up, you agree to the terms of use.</small>
+          <small class="text-body-secondary">If you don't have an account, <a href="signup.jsp">Sign Up</a></small>
         </form>
       </div>
     </div>
