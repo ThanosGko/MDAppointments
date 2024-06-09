@@ -8,17 +8,55 @@
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">
       <li class="nav-item">
-        <a href="mainpage.jsp" class="nav-link active" aria-current="page">
+      <%@ page language="java" %>
+	<%@ page import="jakarta.servlet.http.HttpServletRequest" %>
+      <%
+		    // Get the request URI
+		    String requestURI = ((HttpServletRequest)request).getRequestURI();
+		    // Extract the page name from the URI
+		    String pageName = requestURI.substring(requestURI.lastIndexOf("/") + 1);
+		    int MainPage;
+		    int Doctors;
+		    int Appointments;
+		    if(pageName.equals("mainpage.jsp")){
+		    	MainPage=1;
+		    	Doctors=0;
+		    	Appointments=0;
+		    }else if (pageName.equals("appointments.jsp")){
+		    	MainPage=0;
+		    	Doctors=0;
+		    	Appointments=1;
+		    }else{
+		    	MainPage=0;
+		    	Doctors=1;
+		    	Appointments=0;
+		    }
+		%>
+		<%
+		if (MainPage==1){
+			out.println("<a href=\"mainpage.jsp\" class=\"nav-link active\" aria-current=\"page\">");
+		}else{
+			out.println("<a href=\"mainpage.jsp\" class=\"nav-link text-white\" aria-current=\"page\">");
+		}
+		%>
           <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
           Home
         </a>
       </li>
-      <li class="nav-link text-white">
+      
+		<%
+		if (Doctors==1){
+			out.println("<li class=\"nav-link active\">");
+		}else{
+			out.println("<li class=\"nav-link text-white\">");
+		}
+		%>
+      
           <button class="btn  dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="color:white;margin-left:14px;">
             Doctors
           </button>
           <ul class="dropdown-menu dropdown-menu-dark">
-            <li><a class="dropdown-item" href="#">Καρδιολόγοι</a></li>
+            <li><a class="dropdown-item" href="HeartDoc.jsp">Καρδιολόγοι</a></li>
             <li><a class="dropdown-item" href="#">Παιδίατροι</a></li>
             <li><a class="dropdown-item" href="#">Γυναικολόγοι</a></li>
           </ul>
