@@ -18,7 +18,7 @@
 
   <div class="container marketing">
 
-    <!-- Three columns of text below the carousel -->
+    
     <div class="row">
       <div class="col-lg-4">
         <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><image href="images/doctors/d1.png" width="140" height="140" clip-path="circle(50%, 50%, 50%)" /></svg>
