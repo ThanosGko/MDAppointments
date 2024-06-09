@@ -12,9 +12,9 @@
 <body style="display: flex;">
 <%@ include file="/Fragments/sidebar.jsp" %>
 <div style="flex: 1;box-sizing: border-box;">
-  <div class="album py-5 bg-body-tertiary">
+  <div class="album py-5 bg-body-tertiary" style="height:100%">
+  	<h1 class="display-5" style="margin-left:41%">Καρδιολόγοι</h1>
     <div class="container">
-
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
         <div class="col">
           <div class="card shadow-sm">
@@ -24,7 +24,6 @@
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
                 </div>
                 <small class="text-body-secondary">★★★★☆</small>
               </div>
@@ -39,7 +38,6 @@
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
                 </div>
                 <small class="text-body-secondary">★★★★★</small>
               </div>
@@ -54,7 +52,6 @@
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
                 </div>
                 <small class="text-body-secondary">★★★☆☆</small>
               </div>
@@ -69,7 +66,6 @@
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
                 </div>
                 <small class="text-body-secondary">★★★★☆</small>
               </div>
