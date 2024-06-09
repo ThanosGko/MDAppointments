@@ -15,7 +15,7 @@
       </div>
 
       <div class="modal-body p-5 pt-0">
-        <form action="signup" method="post">
+        <form id="signinForm" action="signup" method="post">
           <div class="form-floating mb-3">
             <input type="text" class="form-control rounded-3" name="username" placeholder="name@example.com">
             <label for="floatingInput">AMKA</label>
@@ -24,14 +24,50 @@
             <input type="password" class="form-control rounded-3" name="password" placeholder="Password">
             <label for="floatingPassword">Password</label>
           </div>
+          <small>Profile Picture(Optional):</small>
+          <input type="file" class="form-control" id="customFile" name="file" accept="image/*"><br>
           <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">Sign Up</button>
-          <small class="text-body-secondary">By clicking Sign up, you agree to the terms of use.</small><br>
+          
+          <small class="text-body-secondary">By clicking Sign up, you agree to the <a href="signin.jsp">Terms of Use</a>.</small><br>
           <small class="text-body-secondary">If you have an account, <a href="signin.jsp">Sign In</a></small>
         </form>
       </div>
     </div>
   </div>
 </div>
+<script>
+document.getElementById('signInForm').addEventListener('submit', function(event) {
+  event.preventDefault(); // Prevent default form submission
+  
+  var fileInput = document.getElementById('customFile');
+  
+  if (fileInput.files.length > 0) {
+    var file = fileInput.files[0];
+    var reader = new FileReader();
+
+    reader.onload = function(event) {
+      var imageData = event.target.result;
+      
+      // Save the image data locally
+      localStorage.setItem('profilePicture', imageData);
+      
+      // Display the uploaded image
+      var imageContainer = document.getElementById('imageContainer');
+      var imgElement = document.createElement('img');
+      imgElement.src = imageData;
+      imgElement.style.maxWidth = '200px'; // Set max width for display
+      imageContainer.innerHTML = ''; // Clear previous content
+      imageContainer.appendChild(imgElement);
+      
+      alert('Profile picture uploaded and saved locally!');
+    };
+
+    reader.readAsDataURL(file); // Read the file as a data URL
+  } else {
+    alert('Please select a file to upload.');
+  }
+});
+</script>
 <%@ include file="/Fragments/BodyEnd.jspf" %>
 </body>
 </html>

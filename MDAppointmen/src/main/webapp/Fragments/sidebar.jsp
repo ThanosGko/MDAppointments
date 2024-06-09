@@ -22,7 +22,7 @@
 		    	MainPage=1;
 		    	Doctors=0;
 		    	Appointments=0;
-		    }else if (pageName.equals("appointments.jsp")){
+		    }else if (pageName.equals("Appointments.jsp")){
 		    	MainPage=0;
 		    	Doctors=0;
 		    	Appointments=1;
@@ -62,7 +62,14 @@
           </ul>
         </li>
       <li>
-        <a href="#" class="nav-link text-white">
+      	<%
+		if (Appointments==1){
+			out.println("<a href=\"Appointments.jsp\" class=\"nav-link active\">");
+		}else{
+			out.println("<a href=\"Appointments.jsp\" class=\"nav-link text-white\">");
+		}
+		%>
+        
           <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
           Appointments
         </a>

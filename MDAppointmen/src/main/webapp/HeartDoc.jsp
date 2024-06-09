@@ -7,7 +7,7 @@
     <title>Main Page - Medical Doctors Appointment</title>
     <%@ include file="/Fragments/HTMLHead.jspf" %>
     
-    </style>
+    
 </head>
 <body style="display: flex;">
 <%@ include file="/Fragments/sidebar.jsp" %>

@@ -21,6 +21,7 @@ public class SignUpServlet extends HttpServlet {
         } else {
         	response.sendRedirect("index.jsp?error=true&message=Register was successful");
         }
+        
     }
 }
 

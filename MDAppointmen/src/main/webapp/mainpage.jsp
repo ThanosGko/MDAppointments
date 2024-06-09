@@ -7,9 +7,9 @@
     <title>Main Page - Medical Doctors Appointment</title>
     <%@ include file="/Fragments/HTMLHead.jspf" %>
     
-    </style>
+    
 </head>
-<body style="display: flex;">
+<body style="style=min-height:100%;display: flex">
     <%@ include file="/Fragments/sidebar.jsp" %>
 <div style="flex: 1;box-sizing: border-box; margin-top:75px">
   <!-- Marketing messaging and featurettes
