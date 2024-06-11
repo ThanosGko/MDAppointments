@@ -17,7 +17,7 @@
       <div class="modal-body p-5 pt-0">
         <form id="signinForm" action="signup" method="post">
           <div class="form-floating mb-3">
-            <input type="text" class="form-control rounded-3" name="username" placeholder="name@example.com">
+            <input type="text" class="form-control rounded-3" name="username" placeholder="12345678">
             <label for="floatingInput">AMKA</label>
           </div>
           <div class="form-floating mb-3">

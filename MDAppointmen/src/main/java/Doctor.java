@@ -32,5 +32,4 @@ public class Doctor {
         availability.get(appointment.getDate()).add(appointment.getTimeSlot());
     }
 
-    // Getters and setters
 }

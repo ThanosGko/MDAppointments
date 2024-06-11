@@ -29,13 +29,10 @@ public class Patient {
 
     public List<Appointment> getWeeklyAppointments() {
 		return null;
-        // Implementation to return weekly appointments
     }
 
     public List<Appointment> getMonthlyAppointments() {
 		return null;
-        // Implementation to return monthly appointments
     }
 
-    // Getters and setters
 }
