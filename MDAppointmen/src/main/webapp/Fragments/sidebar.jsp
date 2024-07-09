@@ -24,7 +24,7 @@
 		    }
 		    String height;
 		    if (Appointments!=1){
-		    	height="100%";
+		    	height="100vh";
 		    }else{
 		    	height="100vh";
 		    }
