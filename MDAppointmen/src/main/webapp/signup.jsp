@@ -1,9 +1,13 @@
 <!DOCTYPE html>
+<%@page import="java.util.Set" %>
+<%@page import="java.util.HashSet" %>
+<%@page import="java.util.Random" %>
 <html>
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" charset="UTF-8">
     <title>Medical Doctors Appointment - Sign Up</title>
     <%@ include file="/Fragments/HTMLHead.jspf" %>
+    
 </head>
 <body>
   <div class="modal modal-sheet position-static d-block bg-body-secondary p-4 py-md-5" tabindex="-1" role="dialog" id="modalSignin" style="height: 100vh;">
@@ -15,17 +19,21 @@
       </div>
 
       <div class="modal-body p-5 pt-0">
-        <form id="signinForm" action="signup" method="post">
+        <form id="signinForm" action="signup" method="post" enctype="multipart/form-data">
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control rounded-3" name="username" placeholder="Username">
+            <label for="floatingInput">Username</label>
+          </div>
           <div class="form-floating mb-3">
-            <input type="text" class="form-control rounded-3" name="username" placeholder="12345678">
+            <input type="text" class="form-control rounded-3" name="amka" placeholder="12345678">
             <label for="floatingInput">AMKA</label>
           </div>
           <div class="form-floating mb-3">
             <input type="password" class="form-control rounded-3" name="password" placeholder="Password">
             <label for="floatingPassword">Password</label>
           </div>
-          <small>Profile Picture(Optional):</small>
-          <input type="file" class="form-control" id="customFile" name="file" accept="image/*"><br>
+          <small>Profile Picture (Optional):</small>
+          <input type="file" class="form-control" id="file" name="file" accept="image/*"><br>
           <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">Sign Up</button>
           
           <small class="text-body-secondary">By clicking Sign up, you agree to the <a href="signin.jsp">Terms of Use</a>.</small><br>
