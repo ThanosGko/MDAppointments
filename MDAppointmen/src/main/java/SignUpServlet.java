@@ -67,13 +67,15 @@ public class SignUpServlet extends HttpServlet {
         } else {
         	boolean user =DatabaseConnector.registerUser(username,amka,password,relativePath, roleint);
         	HttpSession session = request.getSession(true);
-        	session.setAttribute("username", amka);
+        	session.setAttribute("username", username);
+        	session.setAttribute("amka", amka);
         	session.setAttribute("image", relativePath);
         	if (roleint==1) {
         		session.setAttribute("hasregister", 1);
         	}else if (roleint==2) {
         		session.setAttribute("hasregister", 2);
         	}
+        	session.setAttribute("role", roleint);
         	response.sendRedirect("mainpage.jsp");
         }
     }

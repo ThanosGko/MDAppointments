@@ -1,6 +1,7 @@
 <%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page session="true" %>
+<%@ page import="Doctor" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,29 +24,25 @@
 
   <div class="container marketing">
 
-
+	
     <div class="row">
       <div class="col-lg-4">
+            <c:forEach items="${paidDoctors}" var="doctor">
+                <tr>
+                    <td>${doctor.username}</td>
+                    <td>${doctor.amka}</td>
+                    <td>${doctor.fullname}</td>
+                    <td>${doctor.speciality}</td>
+                    <td>${doctor.contactInfo}</td>
+                    <td>${doctor.location}</td>
+                </tr>
+            </c:forEach>
         <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Βασίλης Παπαδόπουλος</title><image href="images/doctors/d1.png" width="140" height="140" clip-path="circle(50%, 50%, 50%)" /></svg>
         <h2 class="fw-normal">Βασίλης Παπαδόπουλος</h2>
         <p>Ο Βασίλης Παπαδόπουλος είναι έμπειρος καρδιολόγος με πολυετή πείρα στη διάγνωση και θεραπεία καρδιαγγειακών παθήσεων. Δίνει έμφαση στην παροχή εξατομικευμένης φροντίδας και στη χρήση σύγχρονων μεθόδων για την εξασφάλιση της καλύτερης δυνατής υγείας των ασθενών του.</p>
         <p><a class="btn btn-secondary" href="#">View details »</a></p>
       </div><!-- /.col-lg-4 -->
-      <div class="col-lg-4">
-        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Μαρία Ανδρέου</title><image href="images/doctors/d2.png" width="140" height="140" clip-path="circle(50%, 50%, 50%)" /></rect></svg>
-        <h2 class="fw-normal">Μαρία Ανδρέου</h2>
-        <p>Η Μαρία Ανδρέου είναι εξειδικευμένη παιδίατρος με πολυετή εμπειρία στη φροντίδα και την υγεία των παιδιών. Επικεντρώνεται στην πρόληψη και θεραπεία παιδιατρικών παθήσεων, προσφέροντας στοργική και εξατομικευμένη ιατρική φροντίδα σε κάθε παιδί.</p>
-        <p><a class="btn btn-secondary" href="#">View details »</a></p>
-      </div><!-- /.col-lg-4 -->
-      <div class="col-lg-4">
-        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Κώστας Νικολάου</title><image href="images/doctors/d3.png" width="140" height="140" clip-path="circle(50%, 50%, 50%)" /></rect></svg>
-        <h2 class="fw-normal">Κώστας Νικολάου</h2>
-        <p>Ο Κώστας Νικολάου είναι έμπειρος ψυχολόγος με εξειδίκευση στη συμβουλευτική και την ψυχοθεραπεία. Εστιάζει στην υποστήριξη και ενδυνάμωση των ατόμων, βοηθώντας τους να ξεπεράσουν ψυχολογικές δυσκολίες και να βελτιώσουν την ποιότητα της ζωής τους.</p>
-        <p><a class="btn btn-secondary" href="#">View details »</a></p>
-      </div><!-- /.col-lg-4 -->
     </div><!-- /.row -->
-
-
     
 
     <hr class="featurette-divider">
@@ -68,10 +65,13 @@
         <div class="modal-content rounded-4 shadow">
             <div class="modal-header p-5 pb-4 border-bottom-0">
                 <h1 class="fw-bold mb-0 fs-2">Doctor Register</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="window.location.href='index.jsp'"></button>
+                <form action="logout" method="post">
+    
+                	<button type="submit" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="window.location.href='index.jsp'"></button>
+            	</form>
             </div>
             <div class="modal-body p-5 pt-0">
-                <form action="checkdoctor" method="post">
+                <form action="UpdateDoctorServlet" method="post">
                     <div class="form-floating mb-3">
                         <input type="text" class="form-control rounded-3" id="floatingInput" placeholder="Test Test" name="fullname">
                         <label for="floatingInput">Full Name</label>
@@ -96,6 +96,8 @@
 					  </select>
 					  <label for="floatingSelect">Speciality</label>
 					</div>
+					<input type="hidden" name="username" value="${username}">
+					<input type="hidden" name="amka" value="${amka}">
                     <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">Submit</button>
                     <hr class="my-4">
                 </form>

@@ -1,12 +1,12 @@
 import java.util.*;
 
 public class Doctor {
-	private String username;
-    private String amka;
-    private String name;
-    private String specialty;
-    private String contactInfo;
-    private String officeLocation;
+	public String username;
+	public String amka;
+	public String name;
+	public String specialty;
+	public String contactInfo;
+	public String officeLocation;
     private Map<Date, List<TimeSlot>> availability = new HashMap<>();
     private List<Appointment> appointments = new ArrayList<>();
 

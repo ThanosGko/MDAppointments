@@ -60,7 +60,9 @@
 			out.println("<li class=\"nav-link text-white\">");
 		}
 		%>
-      
+      	<% 
+		    if (session.getAttribute("role") != null && session.getAttribute("role").equals(1)) {
+		%>
           <button class="btn  dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="color:white;margin-left:14px;">
             Doctors
           </button>
@@ -69,6 +71,9 @@
             <li><a class="dropdown-item" href="#">Παιδίατροι</a></li>
             <li><a class="dropdown-item" href="#">Οδοντίατροι</a></li>
           </ul>
+          <% 
+			    }
+			%>
         </li>
       <li>
       	<%

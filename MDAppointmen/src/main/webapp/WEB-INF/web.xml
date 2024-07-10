@@ -59,4 +59,14 @@
     <servlet-name>DoctorUpdateServlet</servlet-name>
     <url-pattern>/doctorupdate</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UpdateDoctorServlet</display-name>
+    <servlet-name>UpdateDoctorServlet</servlet-name>
+    <servlet-class>UpdateDoctorServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateDoctorServlet</servlet-name>
+    <url-pattern>/UpdateDoctorServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

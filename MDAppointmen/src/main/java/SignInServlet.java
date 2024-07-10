@@ -15,20 +15,34 @@ public class SignInServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+    	HttpSession session = request.getSession(true);
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 		ResultSet User = DatabaseConnector.UserSearch(username,password);
 		String LoginName = null;
+		String amka = null;
+		String role = null;
 		try {
 			if (User.next()) {
 				LoginName=User.getString("username");
+				amka=User.getString("amka");
+				role=User.getString("role");
 				}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
         if (LoginName!=null) {
-        	HttpSession session = request.getSession(true);
+        	boolean isregistereddoc = DatabaseConnector.searchforregister(username);
+    		if (role.equals("2")) {
+    			if (!isregistereddoc) {
+    				session.setAttribute("hasregister", 2);
+    			}else {
+    				session.setAttribute("hasregister", 1);
+    			}
+    		}
+    		session.setAttribute("paidDoctors", DatabaseConnector.getPaidDoctors());
         	session.setAttribute("username", username);
+        	session.setAttribute("amka", amka);
             response.sendRedirect("mainpage.jsp");
         } else {
         	response.sendRedirect("index.jsp?error=true&message=Invalid Credentials");
