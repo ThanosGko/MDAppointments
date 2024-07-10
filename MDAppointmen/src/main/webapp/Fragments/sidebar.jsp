@@ -67,7 +67,7 @@
           <ul class="dropdown-menu dropdown-menu-dark">
             <li><a class="dropdown-item" href="HeartDoc.jsp">Καρδιολόγοι</a></li>
             <li><a class="dropdown-item" href="#">Παιδίατροι</a></li>
-            <li><a class="dropdown-item" href="#">Γυναικολόγοι</a></li>
+            <li><a class="dropdown-item" href="#">Οδοντίατροι</a></li>
           </ul>
         </li>
       <li>
@@ -87,7 +87,7 @@
     <hr>
     <div class="dropdown">
       <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-        <img src="<%out.println("images/doctors/d1.png"); %>" alt="test" width="32" height="32" class="rounded-circle me-2">
+        <img src="<%out.println("images/logo.png"); %>" alt="test" width="32" height="32" class="rounded-circle me-2">
         <strong>${username}</strong>
       </a>
       <ul class="dropdown-menu dropdown-menu-dark text-small shadow">

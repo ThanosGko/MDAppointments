@@ -32,10 +32,22 @@
             <input type="password" class="form-control rounded-3" name="password" placeholder="Password">
             <label for="floatingPassword">Password</label>
           </div>
+          <div class="form-check">
+			  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="client" checked>
+			  <label class="form-check-label" for="flexRadioDefault1">
+			    Client
+			  </label>
+			</div>
+			<div class="form-check">
+			  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="doctor">
+			  <label class="form-check-label" for="flexRadioDefault2">
+			    Doctor
+			  </label>
+			</div>
           <small>Profile Picture (Optional):</small>
           <input type="file" class="form-control" id="file" name="file" accept="image/*"><br>
           <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">Sign Up</button>
-          
+			
           <small class="text-body-secondary">By clicking Sign up, you agree to the <a href="signin.jsp">Terms of Use</a>.</small><br>
           <small class="text-body-secondary">If you have an account, <a href="signin.jsp">Sign In</a></small>
         </form>
@@ -43,6 +55,7 @@
     </div>
   </div>
 </div>
+
 <script>
 document.getElementById('signInForm').addEventListener('submit', function(event) {
   event.preventDefault(); // Prevent default form submission
@@ -75,6 +88,8 @@ document.getElementById('signInForm').addEventListener('submit', function(event)
     alert('Please select a file to upload.');
   }
 });
+
+
 </script>
 <%@ include file="/Fragments/BodyEnd.jspf" %>
 </body>

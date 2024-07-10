@@ -27,42 +27,53 @@ public class SignUpServlet extends HttpServlet {
         String amka = request.getParameter("amka");
         String password = request.getParameter("password");
         Part filePart = request.getPart("file");
-
+        String role = request.getParameter("flexRadioDefault");
+        int roleint;
+        if (role.equals("client")) {roleint=1;}else {roleint=2;}
         
-        // Extract the filename
-        String fileName = extractFileName(filePart);
-
-        // Define the path where the file will be saved
-        String uploadPath = "C:\\Users\\Thanos\\git\\MDAppointments\\MDAppointmen\\src\\main\\webapp\\images";
-        File uploadDir = new File(uploadPath);
-        if (!uploadDir.exists()) {
-            uploadDir.mkdir();
-        }
-
-        // Save the file locally
-        File file = new File(uploadPath + File.separator + fileName);
-        try (InputStream fileContent = filePart.getInputStream();
-             FileOutputStream fos = new FileOutputStream(file)) {
-
-            byte[] buffer = new byte[1024];
-            int bytesRead = 0;
-
-            while ((bytesRead = fileContent.read(buffer)) != -1) {
-                fos.write(buffer, 0, bytesRead);
+        boolean hasIcon = !(filePart == null || filePart.getSize() == 0);
+        String relativePath = null;
+        if (hasIcon) {
+        	String fileName = extractFileName(filePart);
+            
+            // Define the path where the file will be saved
+            String uploadPath = "C:\\Users\\Thanos\\git\\MDAppointments\\MDAppointmen\\src\\main\\webapp\\images";
+            File uploadDir = new File(uploadPath);
+            if (!uploadDir.exists()) {
+                uploadDir.mkdir();
             }
-        }
 
-        String absolutePath = uploadPath + File.separator + fileName;
-        String baseDir = "C:\\Users\\Thanos\\git\\MDAppointments\\MDAppointmen\\src\\main\\webapp";
-        String relativePath = transformToRelativePath(absolutePath, baseDir);
-        System.out.println(relativePath);
+            // Save the file locally
+            File file = new File(uploadPath + File.separator + fileName);
+            try (InputStream fileContent = filePart.getInputStream();
+                 FileOutputStream fos = new FileOutputStream(file)) {
+
+                byte[] buffer = new byte[1024];
+                int bytesRead = 0;
+
+                while ((bytesRead = fileContent.read(buffer)) != -1) {
+                    fos.write(buffer, 0, bytesRead);
+                }
+            }
+
+            String absolutePath = uploadPath + File.separator + fileName;
+            String baseDir = "C:\\Users\\Thanos\\git\\MDAppointments\\MDAppointmen\\src\\main\\webapp";
+            relativePath = transformToRelativePath(absolutePath, baseDir);
+        }
+        // Extract the filename
+        
         if (amka != null && !amka.isEmpty() && !amka.matches("\\d+")) {
             response.sendRedirect("index.jsp?error=true&message=AMKA must be numbers");
         } else {
-        	boolean user =DatabaseConnector.registerUser(username,amka,password,relativePath);
+        	boolean user =DatabaseConnector.registerUser(username,amka,password,relativePath, roleint);
         	HttpSession session = request.getSession(true);
         	session.setAttribute("username", amka);
         	session.setAttribute("image", relativePath);
+        	if (roleint==1) {
+        		session.setAttribute("hasregister", 1);
+        	}else if (roleint==2) {
+        		session.setAttribute("hasregister", 2);
+        	}
         	response.sendRedirect("mainpage.jsp");
         }
     }

@@ -1,4 +1,6 @@
 <%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page session="true" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +12,13 @@
     
 </head>
 <body style="style=min-height:100%;display: flex">
-    <%@ include file="/Fragments/sidebar.jsp" %>
+<%@ include file="/Fragments/sidebar.jsp" %>
+
+
+<%
+    Integer hasregister = (Integer) session.getAttribute("hasregister");
+%>
+
 <div style="flex: 1;box-sizing: border-box; margin-top:75px">
 
   <div class="container marketing">
@@ -53,6 +61,61 @@
     </div>
  </div>
  </div>
+ 
+ <!-- Modal -->
+<div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content rounded-4 shadow">
+            <div class="modal-header p-5 pb-4 border-bottom-0">
+                <h1 class="fw-bold mb-0 fs-2">Doctor Register</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="window.location.href='index.jsp'"></button>
+            </div>
+            <div class="modal-body p-5 pt-0">
+                <form action="doctorupdate" method="post">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control rounded-3" id="floatingInput" placeholder="Test Test" name="fullname">
+                        <label for="floatingInput">Full Name</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control rounded-3" id="floatingPassword" placeholder="Athens" name="location">
+                        <label for="floatingPassword">Location</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control rounded-3" id="floatingPassword" placeholder="6969696969" name="phone">
+                        <label for="floatingPassword">Contact Info</label>
+                    </div>
+                    <div class="form-floating mb-3">
+					  <textarea class="form-control" placeholder="BIO" id="floatingTextarea2" style="height: 100px" name="bio"></textarea>
+					  <label for="floatingTextarea2">Biography</label>
+					</div>
+					<div class="form-floating mb-3">
+					  <select class="form-select" id="floatingSelect" name="speciality">
+					    <option value="1" selected>Καρδιολόγος</option>
+					    <option value="2">Παιδίατρος</option>
+					    <option value="3">Οδοντίατρος</option>
+					  </select>
+					  <label for="floatingSelect">Speciality</label>
+					</div>
+                    <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">Submit</button>
+                    <hr class="my-4">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<% if (hasregister != null && hasregister == 2) { %>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var myModal = new bootstrap.Modal(document.getElementById('signupModal'), {
+            	backdrop: 'static',
+                keyboard: false
+            });
+            myModal.show();
+        });
+    </script>
+<% } %>
+
 <%@ include file="/Fragments/BodyEnd.jspf" %>
 </body>
 </html>

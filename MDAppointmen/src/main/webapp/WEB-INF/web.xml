@@ -49,4 +49,14 @@
     <servlet-name>CheckDocServlet</servlet-name>
     <url-pattern>/CheckDoc</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DoctorUpdateServlet</display-name>
+    <servlet-name>DoctorUpdateServlet</servlet-name>
+    <servlet-class>DoctorUpdateServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoctorUpdateServlet</servlet-name>
+    <url-pattern>/doctorupdate</url-pattern>
+  </servlet-mapping>
 </web-app>
