@@ -8,16 +8,16 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.*;
 
-@WebServlet("/CheckDoc")
+@WebServlet("/checkdoctor")
 public class CheckDocServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-    	String param1 = request.getParameter("param1");
-        String param2 = request.getParameter("param2");
-        String param3 = request.getParameter("param3");
+        System.out.println("mpainei");
 
-        System.out.println(param1);
     }
 }
+
+
+
 

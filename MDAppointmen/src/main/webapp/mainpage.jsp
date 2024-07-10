@@ -71,7 +71,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="window.location.href='index.jsp'"></button>
             </div>
             <div class="modal-body p-5 pt-0">
-                <form action="doctorupdate" method="post">
+                <form action="checkdoctor" method="post">
                     <div class="form-floating mb-3">
                         <input type="text" class="form-control rounded-3" id="floatingInput" placeholder="Test Test" name="fullname">
                         <label for="floatingInput">Full Name</label>
