@@ -6,17 +6,17 @@ public class Doctor {
 	public String name;
 	public String specialty;
 	public String contactInfo;
-	public String officeLocation;
+	public String location;
 	public String brief;
 	public String path;
 
-    public Doctor(String username, String amka, String name, String specialty, String contactInfo, String officeLocation, String path, String brief) {
+    public Doctor(String username, String amka, String name, String specialty, String contactInfo, String location, String path, String brief) {
         this.username = username;
     	this.amka = amka;
         this.name = name;
         this.specialty = specialty;
         this.contactInfo = contactInfo;
-        this.officeLocation = officeLocation;
+        this.location = location;
         this.path = path;
         this.brief = brief;
     }
@@ -43,7 +43,7 @@ public class Doctor {
     }
 
     public String getOfficeLocation() {
-        return officeLocation;
+        return location;
     }
     
     public String getBrief() {

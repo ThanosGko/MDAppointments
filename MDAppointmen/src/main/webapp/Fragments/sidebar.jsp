@@ -68,8 +68,8 @@
           </button>
           <ul class="dropdown-menu dropdown-menu-dark">
             <li><a class="dropdown-item" href="HeartDoc.jsp">Καρδιολόγοι</a></li>
-            <li><a class="dropdown-item" href="#">Παιδίατροι</a></li>
-            <li><a class="dropdown-item" href="#">Οδοντίατροι</a></li>
+            <li><a class="dropdown-item" href="KidDoc.jsp">Παιδίατροι</a></li>
+            <li><a class="dropdown-item" href="Dentists.jsp">Οδοντίατροι</a></li>
           </ul>
           <% 
 			    }

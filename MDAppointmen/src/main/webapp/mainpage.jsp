@@ -30,7 +30,10 @@
         <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>${doctor.name}</title><image href="${doctor.path}" width="140" height="140" clip-path="circle(50%, 50%, 50%)" /></svg>
         <h2 class="fw-normal">${doctor.name}</h2>
         <p>${doctor.brief}</p>
-        <p><a class="btn btn-secondary" href="#">View details »</a></p>
+        <form action="ViewDocServlet" method="post">
+        <p><button class="btn btn-secondary" type="submit">View details »</button></p>
+        <input type="hidden" name="username" value="${doctor.username}">
+        </form>
       </div><!-- /.col-lg-4 -->
     </c:forEach>
     </div><!-- /.row -->

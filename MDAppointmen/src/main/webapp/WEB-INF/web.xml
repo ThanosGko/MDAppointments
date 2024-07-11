@@ -69,4 +69,14 @@
     <servlet-name>UpdateDoctorServlet</servlet-name>
     <url-pattern>/UpdateDoctorServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ViewDocServlet</display-name>
+    <servlet-name>ViewDocServlet</servlet-name>
+    <servlet-class>ViewDocServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewDocServlet</servlet-name>
+    <url-pattern>/ViewDocServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -76,7 +76,13 @@ public class SignUpServlet extends HttpServlet {
         	}else if (roleint==2) {
         		session.setAttribute("hasregister", 2);
         	}
-        	session.setAttribute("role", roleint);
+        	
+        	session.setAttribute("heartDocs", DatabaseConnector.getDoctors(1));
+    		session.setAttribute("kidDocs", DatabaseConnector.getDoctors(2));
+    		session.setAttribute("paidDoctors", DatabaseConnector.getPaidDoctors());
+    		session.setAttribute("toothDocs", DatabaseConnector.getDoctors(3));
+        	
+        	session.setAttribute("role", String.valueOf(roleint));
         	response.sendRedirect("mainpage.jsp");
         }
     }

@@ -41,8 +41,12 @@ public class SignInServlet extends HttpServlet {
     			}
     		}
     		session.setAttribute("heartDocs", DatabaseConnector.getDoctors(1));
-    		session.setAttribute("role", role);
+    		session.setAttribute("kidDocs", DatabaseConnector.getDoctors(2));
+    		session.setAttribute("toothDocs", DatabaseConnector.getDoctors(3));
     		session.setAttribute("paidDoctors", DatabaseConnector.getPaidDoctors());
+    		
+    		
+    		session.setAttribute("role", role);
         	session.setAttribute("username", username);
         	session.setAttribute("amka", amka);
             response.sendRedirect("mainpage.jsp");
