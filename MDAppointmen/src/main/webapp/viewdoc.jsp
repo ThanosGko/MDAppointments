@@ -16,7 +16,7 @@
   <div class="album py-5 bg-body-tertiary" style="height:100%">
   	<h1 class="display-5" style="margin-left:41%">${viewdoctor.name}</h1>
     
-	<div class="col">
+	<div class="col" style="margin-top:150px">
       <div class="card">
               <div class="row g-0">
                 <div class="col-md-4">
@@ -26,9 +26,9 @@
                 <div class="col-md-8">
                   <div class="card-body">
                     <h5 class="card-title">${viewdoctor.name}</h5>
-                    <p class="card-text">${viewdoctor.brief}</p>
+                    <p class="card-text">${viewdoctor.brief}</p><br>
                     <p class="card-text"><small class="text-muted">Location: ${viewdoctor.location}</small></p>
-                    <p class="card-text"><small class="text-muted">Phone Number: ${viewdoctor.phone}</small></p>
+                    <p class="card-text"><small class="text-muted">Phone Number: ${viewdoctor.contactInfo}</small></p>
                   </div>
                 </div>
               </div>

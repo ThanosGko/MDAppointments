@@ -42,7 +42,7 @@ public class Doctor {
         return contactInfo;
     }
 
-    public String getOfficeLocation() {
+    public String getLocation() {
         return location;
     }
     

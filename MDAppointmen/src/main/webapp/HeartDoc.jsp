@@ -26,7 +26,10 @@
               <p class="card-text">${doctor.name}</p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                <form action="ViewDocServlet" method="post">
+                  <button type="submit" class="btn btn-sm btn-outline-secondary">View</button>
+                  <input type="hidden" name="username" value="${doctor.username}">
+                  </form>
                 </div>
                 <small class="text-body-secondary">★★★★☆</small>
               </div>

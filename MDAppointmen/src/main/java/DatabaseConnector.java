@@ -55,13 +55,13 @@ public class DatabaseConnector {
 	    	rs = pst.executeQuery();
 	    	if (rs!=null) {
 	    		Doctor d1 = null;
-	    		while (rs.next()) {
+	    		if (rs.next()) {
 	    			d1 = new Doctor(username, rs.getString("amka"), rs.getString("fullname"), rs.getString("speciality"), rs.getString("contactinfo"), rs.getString("location"),rs.getString("path"),rs.getString("brief"));
 	    		}
-	    		System.out.println(rs.getString("location"));
 	    		return d1;
 	    		
 	    	}else {
+	    		System.out.println("empty");
 	    		return null;
 	    	}
 	    	
