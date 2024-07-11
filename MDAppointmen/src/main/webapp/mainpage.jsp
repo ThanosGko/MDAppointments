@@ -44,7 +44,7 @@
         <p class="lead">Οι μετεωρολογικές υπηρεσίες προβλέπουν την άφιξη αφρικανικής σκόνης στην περιοχή μας τις επόμενες ημέρες. Οι ειδικοί συνιστούν ιδιαίτερη προσοχή σε άτομα με αναπνευστικά προβλήματα, ηλικιωμένους και παιδιά. Προτείνεται ο περιορισμός των εξωτερικών δραστηριοτήτων, η χρήση προστατευτικών μασκών και η παραμονή σε κλειστούς χώρους με καθαρό αέρα. Η αφρικανική σκόνη μπορεί να προκαλέσει ερεθισμούς στα μάτια και το αναπνευστικό σύστημα, γι' αυτό είναι σημαντικό να λαμβάνονται προληπτικά μέτρα για την προστασία της υγείας.</p>
       </div>
       <div class="col-md-5">
-        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="300" height="300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Αφρικανική σκόνη</title><image href="images/doctors/dust.png" width="300" height="300"/></svg>
+        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="300" height="300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Αφρικανική σκόνη</title><image href="images/dust.png" width="300" height="300"/></svg>
       </div>
     </div>
  </div>

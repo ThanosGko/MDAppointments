@@ -52,7 +52,6 @@
           Home
         </a>
       </li>
-      
 		<%
 		if (Doctors==1){
 			out.println("<li class=\"nav-link active\">");
@@ -61,8 +60,9 @@
 		}
 		%>
       	<% 
-		    if (session.getAttribute("role") != null && session.getAttribute("role").equals(1)) {
+		    if (session.getAttribute("role") != null && session.getAttribute("role").equals("1")) {
 		%>
+		
           <button class="btn  dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="color:white;margin-left:14px;">
             Doctors
           </button>
@@ -92,7 +92,7 @@
     <hr>
     <div class="dropdown">
       <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-        <img src="<%out.println("images/logo.png"); %>" alt="test" width="32" height="32" class="rounded-circle me-2">
+        <img src="<%out.println("images/unipi.png"); %>" alt="test" width="32" height="32" class="rounded-circle me-2">
         <strong>${username}</strong>
       </a>
       <ul class="dropdown-menu dropdown-menu-dark text-small shadow">

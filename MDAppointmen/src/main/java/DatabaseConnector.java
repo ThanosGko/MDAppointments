@@ -125,5 +125,24 @@ public class DatabaseConnector {
     	}
 		return null;
     }
+    
+    public static List<Doctor> getDoctors(int role){
+    	Connection con = connect();
+    	try {
+    	ResultSet rs = null;
+    	PreparedStatement pst = con.prepareStatement("SELECT * FROM doctors WHERE speciality=?");
+    	pst.setString(1, String.valueOf(role));
+    	rs = pst.executeQuery();
+    	List<Doctor> mainlist = new ArrayList<>();;
+    	while (rs.next()) {
+    		Doctor d1 = new Doctor(rs.getString("username"), rs.getString("amka"), rs.getString("fullname"), rs.getString("speciality"), rs.getString("contactinfo"), rs.getString("location"),rs.getString("path"),rs.getString("brief"));
+    		mainlist.add(d1);
+    	}
+    	return mainlist;
+    	}catch(Exception e){
+    		System.out.println(e);
+    	}
+		return null;
+    }
 }
 

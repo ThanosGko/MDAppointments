@@ -40,6 +40,8 @@ public class SignInServlet extends HttpServlet {
     				session.setAttribute("hasregister", 1);
     			}
     		}
+    		session.setAttribute("heartDocs", DatabaseConnector.getDoctors(1));
+    		session.setAttribute("role", role);
     		session.setAttribute("paidDoctors", DatabaseConnector.getPaidDoctors());
         	session.setAttribute("username", username);
         	session.setAttribute("amka", amka);
