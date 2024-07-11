@@ -56,7 +56,7 @@ public class DatabaseConnector {
 	    	if (rs!=null) {
 	    		Doctor d1 = null;
 	    		while (rs.next()) {
-	    			d1 = new Doctor(username, rs.getString("amka"), rs.getString("fullname"), rs.getString("speciality"), rs.getString("contactinfo"), rs.getString("location"));
+	    			d1 = new Doctor(username, rs.getString("amka"), rs.getString("fullname"), rs.getString("speciality"), rs.getString("contactinfo"), rs.getString("location"),rs.getString("path"),rs.getString("brief"));
 	    		}
 	    		return d1;
 	    		
@@ -69,10 +69,10 @@ public class DatabaseConnector {
     	}
     }
     
-    public static boolean updateDoc(String username, String amka,String fullname, String location, String phone,String bio,String speciality) {
+    public static boolean updateDoc(String username, String amka,String fullname, String location, String phone,String bio,String speciality,String path) {
     	Connection con =connect();
     	try {
-    		PreparedStatement pst = con.prepareStatement("insert into doctors(username, amka,fullname, location,speciality, contactinfo,brief) values(?,?,?,?,?,?,?)");
+    		PreparedStatement pst = con.prepareStatement("insert into doctors(username, amka,fullname, location,speciality, contactinfo,brief,path) values(?,?,?,?,?,?,?,?)");
     		pst.setString(1, username);
     		pst.setString(2,amka);
     		pst.setString(3, fullname);
@@ -80,6 +80,7 @@ public class DatabaseConnector {
         	pst.setString(5, speciality);
         	pst.setString(6, phone);
         	pst.setString(7, bio);
+        	pst.setString(8,path);
         	int rawCount = pst.executeUpdate();
         	return true;
     	}catch(Exception e) {
@@ -115,7 +116,7 @@ public class DatabaseConnector {
     	rs = pst.executeQuery();
     	List<Doctor> mainlist = new ArrayList<>();;
     	while (rs.next()) {
-    		Doctor d1 = new Doctor(rs.getString("username"), rs.getString("amka"), rs.getString("fullname"), rs.getString("speciality"), rs.getString("contactinfo"), rs.getString("location"));
+    		Doctor d1 = new Doctor(rs.getString("username"), rs.getString("amka"), rs.getString("fullname"), rs.getString("speciality"), rs.getString("contactinfo"), rs.getString("location"),rs.getString("path"),rs.getString("brief"));
     		mainlist.add(d1);
     	}
     	return mainlist;

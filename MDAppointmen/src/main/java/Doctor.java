@@ -7,31 +7,50 @@ public class Doctor {
 	public String specialty;
 	public String contactInfo;
 	public String officeLocation;
-    private Map<Date, List<TimeSlot>> availability = new HashMap<>();
-    private List<Appointment> appointments = new ArrayList<>();
+	public String brief;
+	public String path;
 
-    public Doctor(String username, String amka, String name, String specialty, String contactInfo, String officeLocation) {
+    public Doctor(String username, String amka, String name, String specialty, String contactInfo, String officeLocation, String path, String brief) {
         this.username = username;
     	this.amka = amka;
         this.name = name;
         this.specialty = specialty;
         this.contactInfo = contactInfo;
         this.officeLocation = officeLocation;
+        this.path = path;
+        this.brief = brief;
     }
 
-    public boolean isAvailable(Date date, TimeSlot timeSlot) {
-        List<TimeSlot> slots = availability.get(date);
-        return slots != null && slots.contains(timeSlot);
+    
+    public String getUsername() {
+        return username;
     }
 
-    public void addAppointment(Appointment appointment) {
-        appointments.add(appointment);
-        availability.get(appointment.getDate()).remove(appointment.getTimeSlot());
+    public String getAmka() {
+        return amka;
     }
 
-    public void removeAppointment(Appointment appointment) {
-        appointments.remove(appointment);
-        availability.get(appointment.getDate()).add(appointment.getTimeSlot());
+    public String getName() {
+        return name;
     }
 
+    public String getSpecialty() {
+        return specialty;
+    }
+
+    public String getContactInfo() {
+        return contactInfo;
+    }
+
+    public String getOfficeLocation() {
+        return officeLocation;
+    }
+    
+    public String getBrief() {
+        return brief;
+    }
+    
+    public String getPath() {
+        return path;
+    }
 }

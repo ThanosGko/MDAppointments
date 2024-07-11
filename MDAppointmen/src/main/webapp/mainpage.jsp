@@ -1,7 +1,6 @@
 <%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="true" %>
-<%@ page import="Doctor" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,24 +25,16 @@
 
 	
     <div class="row">
+    <c:forEach var="doctor" items="${paidDoctors}">
       <div class="col-lg-4">
-            <c:forEach items="${paidDoctors}" var="doctor">
-                <tr>
-                    <td>${doctor.username}</td>
-                    <td>${doctor.amka}</td>
-                    <td>${doctor.fullname}</td>
-                    <td>${doctor.speciality}</td>
-                    <td>${doctor.contactInfo}</td>
-                    <td>${doctor.location}</td>
-                </tr>
-            </c:forEach>
-        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Βασίλης Παπαδόπουλος</title><image href="images/doctors/d1.png" width="140" height="140" clip-path="circle(50%, 50%, 50%)" /></svg>
-        <h2 class="fw-normal">Βασίλης Παπαδόπουλος</h2>
-        <p>Ο Βασίλης Παπαδόπουλος είναι έμπειρος καρδιολόγος με πολυετή πείρα στη διάγνωση και θεραπεία καρδιαγγειακών παθήσεων. Δίνει έμφαση στην παροχή εξατομικευμένης φροντίδας και στη χρήση σύγχρονων μεθόδων για την εξασφάλιση της καλύτερης δυνατής υγείας των ασθενών του.</p>
+        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>${doctor.name}</title><image href="${doctor.path}" width="140" height="140" clip-path="circle(50%, 50%, 50%)" /></svg>
+        <h2 class="fw-normal">${doctor.name}</h2>
+        <p>${doctor.brief}</p>
         <p><a class="btn btn-secondary" href="#">View details »</a></p>
       </div><!-- /.col-lg-4 -->
+    </c:forEach>
     </div><!-- /.row -->
-    
+ 
 
     <hr class="featurette-divider">
 
@@ -98,6 +89,7 @@
 					</div>
 					<input type="hidden" name="username" value="${username}">
 					<input type="hidden" name="amka" value="${amka}">
+					<input type="hidden" name="path" value="${path}">
                     <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">Submit</button>
                     <hr class="my-4">
                 </form>

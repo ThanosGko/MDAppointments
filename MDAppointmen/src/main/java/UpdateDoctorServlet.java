@@ -23,7 +23,8 @@ public class UpdateDoctorServlet extends HttpServlet {
 		        String speciality = request.getParameter("speciality");
 		        String username = request.getParameter("username");
 		        String amka = request.getParameter("amka");
-		        boolean user =DatabaseConnector.updateDoc(username, amka,fullname,location,phone,bio,speciality);
+		        String path = request.getParameter("path");
+		        boolean user =DatabaseConnector.updateDoc(username, amka,fullname,location,phone,bio,speciality,path);
 		        
 		        HttpSession session = request.getSession(false); // false means do not create new session if none exists
 		        if (session != null) {

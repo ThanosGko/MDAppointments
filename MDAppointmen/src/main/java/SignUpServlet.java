@@ -67,6 +67,7 @@ public class SignUpServlet extends HttpServlet {
         } else {
         	boolean user =DatabaseConnector.registerUser(username,amka,password,relativePath, roleint);
         	HttpSession session = request.getSession(true);
+        	session.setAttribute("path", relativePath);
         	session.setAttribute("username", username);
         	session.setAttribute("amka", amka);
         	session.setAttribute("image", relativePath);
