@@ -34,9 +34,51 @@
               </div>
             </div>
         </div>
+        
+        
+        <!-- Modal -->
+<div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content rounded-4 shadow">
+            <div class="modal-header p-5 pb-4 border-bottom-0">
+                <h1 class="fw-bold mb-0 fs-2">Book Appointment</h1>
+                <form action="logout" method="post">
+    
+                	<button type="submit" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="window.location.href='viewdoc.jsp'"></button>
+            	</form>
+            </div>
+            <div class="modal-body p-5 pt-0">
+            		<form action="BookAppointmentServlet" method="post">
+                    <label for="startDate">Please insert date and time:</label>
+					<input id="startDate" class="form-control mb-3" type="date" name="date"/>
+					<input id="startDate" class="form-control mb-3" type="time" name="time"/>
+					<input type="hidden" name="patient" value="${username}">
+					<input type="hidden" name="doctor" value="${viewdoctor.username}">
+                    <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">Submit</button>
+                    <hr class="my-4">
+                    </form>
+            </div>
+        </div>
+    </div>
+</div>
+        
+        <form action="logout" method="post">
+        <div class="text-center" style="margin-top:75px">
+    	<button type="button" class="btn btn-primary" id="myButton">Book Appointment</button>
+    	</div>
+    	</form>
     
   </div>
 </div>
+<script>
+    function showModal() {
+        var myModal = new bootstrap.Modal(document.getElementById('signupModal'), {
+            keyboard: false
+        });
+        myModal.show();
+    }
+    document.getElementById('myButton').addEventListener('click', showModal);
+</script>
 <%@ include file="/Fragments/BodyEnd.jspf" %>
 </body>
 </html>

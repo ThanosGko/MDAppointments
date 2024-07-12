@@ -1,33 +1,32 @@
 import java.util.Date;
 
 public class Appointment {
-    private Date date;
-    private TimeSlot timeSlot;
-    private Patient patient;
-    private Doctor doctor;
+    private String date;
+    private String time;
+    private String patient;
+    private String doctor;
     private String reason;
 
-    public Appointment(Date date, TimeSlot timeSlot, Patient patient, Doctor doctor, String reason) {
+    public Appointment(String date, String time, String patient, String doctor) {
         this.date = date;
-        this.timeSlot = timeSlot;
+        this.time = time;
         this.patient = patient;
         this.doctor = doctor;
-        this.reason = reason;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public TimeSlot getTimeSlot() {
-        return timeSlot;
+    public String getTime() {
+        return time;
     }
 
-    public Patient getPatient() {
+    public String getPatient() {
         return patient;
     }
 
-    public Doctor getDoctor() {
+    public String getDoctor() {
         return doctor;
     }
 

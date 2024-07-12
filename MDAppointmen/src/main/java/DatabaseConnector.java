@@ -8,7 +8,7 @@ public class DatabaseConnector {
 		Connection con = null;
 		try {
         	Class.forName("com.mysql.cj.jdbc.Driver");
-        	con = DriverManager.getConnection("jdbc:mysql://localhost:3306/md","root","");
+        	con = DriverManager.getConnection("jdbc:mysql://localhost:3306/md","root","root1234");
 
         }catch (Exception e) {
             	e.printStackTrace();
@@ -137,6 +137,42 @@ public class DatabaseConnector {
     	List<Doctor> mainlist = new ArrayList<>();;
     	while (rs.next()) {
     		Doctor d1 = new Doctor(rs.getString("username"), rs.getString("amka"), rs.getString("fullname"), rs.getString("speciality"), rs.getString("contactinfo"), rs.getString("location"),rs.getString("path"),rs.getString("brief"));
+    		mainlist.add(d1);
+    	}
+    	return mainlist;
+    	}catch(Exception e){
+    		System.out.println(e);
+    	}
+		return null;
+    }
+    
+    public static boolean registerAppointment(String client, String doctor, String date, String time) {
+    	Connection con = connect();
+    	try {
+    		PreparedStatement pst = con.prepareStatement("insert into Appointments(client, doctor,date, time) values(?,?,?,?)");
+    		pst.setString(1, client);
+    		pst.setString(2,doctor);
+    		pst.setString(3, date);
+    		pst.setString(4, time);
+        	int rawCount = pst.executeUpdate();
+        	return true;
+    	}catch(Exception e) {
+    		System.out.println(e);
+    		return false;
+    	}
+    }
+    
+    public static List<Appointment> getAppointments(String username){
+    	Connection con = connect();
+    	try {
+    	ResultSet rs = null;
+    	PreparedStatement pst = con.prepareStatement("SELECT * FROM Appointments WHERE client=? or doctor =?");
+    	pst.setString(1, username);
+    	pst.setString(2, username);
+    	rs = pst.executeQuery();
+    	List<Appointment> mainlist = new ArrayList<>();;
+    	while (rs.next()) {
+    		Appointment d1 = new Appointment(rs.getString("date"), rs.getString("time"), rs.getString("client"), rs.getString("doctor"));
     		mainlist.add(d1);
     	}
     	return mainlist;
