@@ -18,7 +18,7 @@
         <form action="signin" method="post">
           <div class="form-floating mb-3">
             <input type="text" class="form-control rounded-3" name="username" placeholder="name@example.com">
-            <label for="floatingInput">AMKA</label>
+            <label for="floatingInput">Username</label>
           </div>
           <div class="form-floating mb-3">
             <input type="password" class="form-control rounded-3" name="password" placeholder="Password">

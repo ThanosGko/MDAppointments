@@ -31,13 +31,19 @@ public class SignUpServlet extends HttpServlet {
         int roleint;
         if (role.equals("client")) {roleint=1;}else {roleint=2;}
         
+        if (DatabaseConnector.isregistered(username)) {
+        	response.sendRedirect("index.jsp?error=true&message=This username already exists");
+        	return;
+        }
+        
+        
         boolean hasIcon = !(filePart == null || filePart.getSize() == 0);
         String relativePath = null;
         if (hasIcon) {
         	String fileName = extractFileName(filePart);
             
             // Define the path where the file will be saved
-            String uploadPath = "C:\\Users\\Thanos\\git\\MDAppointments\\MDAppointmen\\src\\main\\webapp\\images";
+            String uploadPath = "C://Users//Thanos//git//MDAppointments//MDAppointmen//src//main//webapp//images";
             File uploadDir = new File(uploadPath);
             if (!uploadDir.exists()) {
                 uploadDir.mkdir();
@@ -57,7 +63,7 @@ public class SignUpServlet extends HttpServlet {
             }
 
             String absolutePath = uploadPath + File.separator + fileName;
-            String baseDir = "C:\\Users\\Thanos\\git\\MDAppointments\\MDAppointmen\\src\\main\\webapp";
+            String baseDir = "C://Users//Thanos//git//MDAppointments//MDAppointmen//src//main//webapp";
             relativePath = transformToRelativePath(absolutePath, baseDir);
         }
         // Extract the filename
@@ -73,8 +79,10 @@ public class SignUpServlet extends HttpServlet {
         	session.setAttribute("image", relativePath);
         	if (roleint==1) {
         		session.setAttribute("hasregister", 1);
+        		System.out.println(1);
         	}else if (roleint==2) {
         		session.setAttribute("hasregister", 2);
+        		System.out.println(2);
         	}
         	
         	session.setAttribute("heartDocs", DatabaseConnector.getDoctors(1));
@@ -106,7 +114,7 @@ public class SignUpServlet extends HttpServlet {
         Path relativePathObj = baseDirPathObj.relativize(absolutePathObj);
 
         // Return the relative path as a string with a leading ".\"
-        return ".\\" + relativePathObj.toString();
+        return relativePathObj.toString();
     }
     
 }

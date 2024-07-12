@@ -4,10 +4,10 @@ public class Appointment {
     private String date;
     private String time;
     private String patient;
-    private String doctor;
+    private Doctor doctor;
     private String reason;
 
-    public Appointment(String date, String time, String patient, String doctor) {
+    public Appointment(String date, String time, String patient, Doctor doctor) {
         this.date = date;
         this.time = time;
         this.patient = patient;
@@ -26,7 +26,7 @@ public class Appointment {
         return patient;
     }
 
-    public String getDoctor() {
+    public Doctor getDoctor() {
         return doctor;
     }
 

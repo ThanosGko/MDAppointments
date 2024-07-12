@@ -89,4 +89,24 @@
     <servlet-name>BookAppointmentServlet</servlet-name>
     <url-pattern>/BookAppointmentServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AdvertiseServlet</display-name>
+    <servlet-name>AdvertiseServlet</servlet-name>
+    <servlet-class>AdvertiseServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdvertiseServlet</servlet-name>
+    <url-pattern>/AdvertiseServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DeleteAppointmentServlet</display-name>
+    <servlet-name>DeleteAppointmentServlet</servlet-name>
+    <servlet-class>DeleteAppointmentServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteAppointmentServlet</servlet-name>
+    <url-pattern>/DeleteAppointmentServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

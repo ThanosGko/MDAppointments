@@ -30,10 +30,20 @@
         <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>${doctor.name}</title><image href="${doctor.path}" width="140" height="140" clip-path="circle(50%, 50%, 50%)" /></svg>
         <h2 class="fw-normal">${doctor.name}</h2>
         <p>${doctor.brief}</p>
+        <% 
+		    if (session.getAttribute("role") != null && session.getAttribute("role").equals("1")) {
+		%>
         <form action="ViewDocServlet" method="post">
         <p><button class="btn btn-secondary" type="submit">View details »</button></p>
         <input type="hidden" name="username" value="${doctor.username}">
         </form>
+        <%}else{ %>
+        <form action="AdvertiseServlet" method="post">
+        <p><button class="btn btn-secondary" type="submit" id="openModalBtn">Advertise Here »</button></p>
+        <input type="hidden" name="docusername" value="${doctor.username}">
+        <input type="hidden" name="username" value="${username}">
+        </form>
+        <%} %>
       </div><!-- /.col-lg-4 -->
     </c:forEach>
     </div><!-- /.row -->
@@ -101,6 +111,28 @@
     </div>
 </div>
 
+<!-- Small modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm" id="triggerModal" style="display: none;">Small modal</button>
+
+    <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h4 class="modal-title" id="myLargeModalLabel">Success</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Η διαφήμιση έγινε επιτυχώς!
+      </div>
+    </div>
+  </div>
+  </div>
+
+
+
 <% if (hasregister != null && hasregister == 2) { %>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
@@ -113,6 +145,15 @@
     </script>
 <% } %>
 
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has('showModal') && urlParams.get('showModal') === 'true') {
+            const myModal = new bootstrap.Modal(document.querySelector('.bd-example-modal-sm'));
+            myModal.show();
+        }
+    });
+</script>
 <%@ include file="/Fragments/BodyEnd.jspf" %>
 </body>
 </html>

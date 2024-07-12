@@ -42,16 +42,26 @@
         <div class="modal-content rounded-4 shadow">
             <div class="modal-header p-5 pb-4 border-bottom-0">
                 <h1 class="fw-bold mb-0 fs-2">Book Appointment</h1>
-                <form action="logout" method="post">
-    
                 	<button type="submit" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="window.location.href='viewdoc.jsp'"></button>
-            	</form>
             </div>
             <div class="modal-body p-5 pt-0">
             		<form action="BookAppointmentServlet" method="post">
                     <label for="startDate">Please insert date and time:</label>
 					<input id="startDate" class="form-control mb-3" type="date" name="date"/>
-					<input id="startDate" class="form-control mb-3" type="time" name="time"/>
+					<input id="startTime" class="form-control mb-3" type="time" name="time" min="08:00" max="20:00" step="3600"/>
+					<script>
+				        document.getElementById('startDate').addEventListener('input', function(e) {
+				            var inputDate = new Date(this.value);
+				            var day = inputDate.getUTCDay();
+				            
+				            // 0 for Sunday and 6 for Saturday
+				            if (day === 0 || day === 6) {
+				                alert("Weekends are not selectable. Please choose a weekday.");
+				                this.value = ''; // Clear the input
+				            }
+				        });
+				    </script>
+				    
 					<input type="hidden" name="patient" value="${username}">
 					<input type="hidden" name="doctor" value="${viewdoctor.username}">
                     <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">Submit</button>
@@ -70,6 +80,27 @@
     
   </div>
 </div>
+
+<!-- Small modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm" id="triggerModal" style="display: none;">Small modal</button>
+
+    <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h4 class="modal-title" id="myLargeModalLabel">Error</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Ο Γιατρός που επιλέξατε έχει προγραμματισμένο άλλο ραντεβού για την συγκεκριμένη ημέρα και ώρα.
+      </div>
+    </div>
+  </div>
+  </div>
+
 <script>
     function showModal() {
         var myModal = new bootstrap.Modal(document.getElementById('signupModal'), {
@@ -78,6 +109,14 @@
         myModal.show();
     }
     document.getElementById('myButton').addEventListener('click', showModal);
+    
+    
+    document.addEventListener("DOMContentLoaded", function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has('showModal') && urlParams.get('showModal') === 'true') {
+            document.getElementById('triggerModal').click();
+        }
+    });
 </script>
 <%@ include file="/Fragments/BodyEnd.jspf" %>
 </body>

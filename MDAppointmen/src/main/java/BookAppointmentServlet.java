@@ -19,12 +19,12 @@ public class BookAppointmentServlet extends HttpServlet {
 		        String doctor = request.getParameter("doctor");
 		        String date = request.getParameter("date");
 		        String time = request.getParameter("time");
-		        System.out.println(client) ;
-		        System.out.println(doctor) ;
-		        System.out.println(date) ;
-		        System.out.println(time) ;
-		        DatabaseConnector.registerAppointment(client, doctor, date, time);
-		        System.out.println("done");
+		        boolean register = DatabaseConnector.registerAppointment(client, doctor, date, time);
+		        if (register) {
+		        	response.sendRedirect("mainpage.jsp");
+		        }else {
+		        	response.sendRedirect("viewdoc.jsp?showModal=true");
+		        }
 }
     }
 

@@ -31,7 +31,7 @@
                   <input type="hidden" name="username" value="${doctor.username}">
                   </form>
                 </div>
-                <small class="text-body-secondary">★★★★☆</small>
+                <small class="text-body-secondary">Location: ${doctor.location}</small>
               </div>
             </div>
           </div>
