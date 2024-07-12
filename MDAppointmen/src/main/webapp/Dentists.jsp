@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     
-    <title>Main Page - Medical Doctors Appointment</title>
+    <title>Doctors - Medical Doctors Appointment</title>
     <%@ include file="/Fragments/HTMLHead.jspf" %>
     
     

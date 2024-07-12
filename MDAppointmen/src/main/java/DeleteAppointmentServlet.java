@@ -18,9 +18,12 @@ public class DeleteAppointmentServlet extends HttpServlet {
     	String doctor = request.getParameter("doctor");
     	String date = request.getParameter("date");
     	String time = request.getParameter("time");
-    	DatabaseConnector.deleteAppointment(client, doctor, date, time);
-    	//session.setAttribute("appointments", DatabaseConnector.getAppointments(client));
+    	String username = request.getParameter("username");
     	
+    	DatabaseConnector.deleteAppointment(client, doctor, date, time);
+    	HttpSession session = request.getSession(false);
+    	session.setAttribute("appointments", DatabaseConnector.getAppointments(username));
+    	response.sendRedirect("Appointments.jsp?showModal=true");
     }
 }
 

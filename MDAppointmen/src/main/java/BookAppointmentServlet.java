@@ -20,6 +20,8 @@ public class BookAppointmentServlet extends HttpServlet {
 		        String date = request.getParameter("date");
 		        String time = request.getParameter("time");
 		        boolean register = DatabaseConnector.registerAppointment(client, doctor, date, time);
+		        HttpSession session = request.getSession(false);
+		    	session.setAttribute("appointments", DatabaseConnector.getAppointments(client));
 		        if (register) {
 		        	response.sendRedirect("mainpage.jsp");
 		        }else {

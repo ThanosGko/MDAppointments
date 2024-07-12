@@ -3,11 +3,11 @@ import java.util.Date;
 public class Appointment {
     private String date;
     private String time;
-    private String patient;
+    private Patient patient;
     private Doctor doctor;
     private String reason;
 
-    public Appointment(String date, String time, String patient, Doctor doctor) {
+    public Appointment(String date, String time, Patient patient, Doctor doctor) {
         this.date = date;
         this.time = time;
         this.patient = patient;
@@ -22,7 +22,7 @@ public class Appointment {
         return time;
     }
 
-    public String getPatient() {
+    public Patient getPatient() {
         return patient;
     }
 

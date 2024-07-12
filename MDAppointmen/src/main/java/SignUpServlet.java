@@ -65,6 +65,8 @@ public class SignUpServlet extends HttpServlet {
             String absolutePath = uploadPath + File.separator + fileName;
             String baseDir = "C://Users//Thanos//git//MDAppointments//MDAppointmen//src//main//webapp";
             relativePath = transformToRelativePath(absolutePath, baseDir);
+        }else {
+        	relativePath = "images/unipi.png";
         }
         // Extract the filename
         

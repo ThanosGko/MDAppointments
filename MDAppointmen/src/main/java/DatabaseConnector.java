@@ -200,7 +200,7 @@ public class DatabaseConnector {
     	List<Appointment> mainlist = new ArrayList<>();;
     	while (rs.next()) {
     		
-    		Appointment d1 = new Appointment(rs.getString("date"), rs.getString("time"), rs.getString("client"), searchDoc(rs.getString("doctor")));
+    		Appointment d1 = new Appointment(rs.getString("date"), rs.getString("time"), getPatient(rs.getString("client")), searchDoc(rs.getString("doctor")));
     		mainlist.add(d1);
     	}
     	return mainlist;
@@ -232,14 +232,18 @@ public class DatabaseConnector {
     	pst.setString(1, username);
     	rs = pst.executeQuery();
     	if (rs.next()) {
-    	    return rs.getString("path");
-    	}else {
-    		return "images/unipi.png";
+    		if (!rs.getString("path").equals("")) {
+    			return rs.getString("path");
+    		}else {
+    			return "images/unipi.png";
+    		}
+    	    
     	}
     	}catch(Exception e){
     		System.out.println(e);
     		return "images/unipi.png";
     	}
+    	return "images/unipi.png";
     }
     
     public static Appointment getAppointment(String client, String doctor, String date, String time){
@@ -254,7 +258,7 @@ public class DatabaseConnector {
     	rs = pst.executeQuery();
     	Appointment d1 = null;
     	if (rs.next()) {
-    		d1 = new Appointment(rs.getString("date"), rs.getString("time"), rs.getString("client"), searchDoc(rs.getString("doctor")));
+    		d1 = new Appointment(rs.getString("date"), rs.getString("time"), getPatient(rs.getString("client")), searchDoc(rs.getString("doctor")));
     	}
     	return d1;
     	}catch(Exception e){
@@ -275,6 +279,24 @@ public class DatabaseConnector {
     	}catch(Exception e) {
     		System.out.println(e);
     	}
+    }
+    
+    public static Patient getPatient(String username) {
+    	Connection con = connect();
+    	try {
+    	ResultSet rs = null;
+    	PreparedStatement pst = con.prepareStatement("SELECT * FROM users WHERE username=?");
+    	pst.setString(1, username);
+    	rs = pst.executeQuery();
+    	Patient p1 = null;
+    	if (rs.next()) {
+    		p1 = new Patient(rs.getString("username"), rs.getString("amka"));
+    	}
+    	return p1;
+    	}catch(Exception e){
+    		System.out.println(e);
+    	}
+		return null;
     }
     
 }
